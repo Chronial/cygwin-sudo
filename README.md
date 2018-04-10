@@ -33,7 +33,8 @@ For convenience, you might want to add an alias to this script, eg:
     alias sudo="python3 /path-to-cygwin-sudo/cygwin-sudo.py"
 
 
-Usage examples:
+Usage examples
+--------------
 
     $ sudo vim /etc/hosts
     $ sudo cp foo.txt /cygdrive/c/Program Files/
@@ -49,10 +50,13 @@ example above) and run your commands from there
 How it works
 ------------
 
-When run, `cygwin-sudo` uses `cygstart` to run second process in elevated mode.
-This elevated process will then run the given command and connect to the
-initial process to exchange input and output.
+When run, `cygwin-sudo` uses `cygstart` to run a second process in elevated mode.
+For security reasons, Windows prevents most kinds of communication between
+elevated and non-elevated processes. So, the elevated process connects to the
+non-elevated process via TCP for communication. To prevent other processes from
+interfering with this connection, it's secured with a random password.
 
-The given command runs in a pty, so it *acts* as if running in an ordinary
-terminals. Therefore you can run cygwin's interactive console-based program
-like vim or less.
+The elevated process will then run the given exchange input and output with the
+original process via the TCP connection. The given command is run in a pty, so
+it *acts* as if running in an ordinary terminal. Therefore, you can run
+interactive console-based programs like vim or less.
