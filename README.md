@@ -56,7 +56,7 @@ elevated and non-elevated processes. So, the elevated process connects to the
 non-elevated process via TCP for communication. To prevent other processes from
 interfering with this connection, it's secured with a random password.
 
-The elevated process will then run the given exchange input and output with the
-original process via the TCP connection. The given command is run in a pty, so
-it *acts* as if running in an ordinary terminal. Therefore, you can run
-interactive console-based programs like vim or less.
+The elevated process will then run the given command and exchange input and 
+output with the original process via the TCP connection. The command
+is run in a pty, so it *acts* as if running in an ordinary terminal.
+Therefore, you can run interactive console-based programs like vim or less.
