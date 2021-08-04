@@ -60,3 +60,8 @@ The elevated process will then run the given command and exchange input and
 output with the original process via the TCP connection. The command
 is run in a pty, so it *acts* as if running in an ordinary terminal.
 Therefore, you can run interactive console-based programs like vim or less.
+
+Related Projects
+----------------
+* [nu774's sudo-for-cygwin](https://github.com/nu774/sudo-for-cygwin): The inspiration for this tool
+* [wsl-sudo](https://github.com/Chronial/wsl-sudo): A wsl version of this tool
